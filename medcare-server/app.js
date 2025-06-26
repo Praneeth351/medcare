@@ -25,7 +25,7 @@ mongoose
 app.use(express.static("public"));
 
 app.use(cors({
-  origin: "https://medcare-frontend-90qq.onrender.com", // <-- your deployed frontend URL
+  origin: "https://medcare-frontend-90qq.onrender.com/", // <-- your deployed frontend URL
   credentials: true
 }));
 
