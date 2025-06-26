@@ -6,9 +6,13 @@ import api from "./routes/index.js";
 
 const app = express();
 
-const uri = 'mongodb+srv://harshaganji2004:Harsha123@cluster0.macfwpi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
-//use the following uri when running local MongoDB server
-// const uri = "mongodb://127.0.0.1:27017/MedCare";
+// const uri = 'mongodb+srv://harshaganji2004:Harsha123@cluster0.macfwpi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+// //use the following uri when running local MongoDB server
+// // const uri = "mongodb://127.0.0.1:27017/MedCare";
+
+const { USER_NAME, PASSWORD } = process.env;
+const uri = `mongodb+srv://${USER_NAME}:${PASSWORD}@cluster0.macfwpi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+
 
 mongoose
   .connect(uri, {
