@@ -1,0 +1,14 @@
+✅ Backend (medcare-server)
+Field			Value
+Root Directory		medcare-server
+Build Command		npm install
+Start Command		npm start
+Environment		Node
+
+
+✅ Frontend (medcare)
+Field			Value
+Root Directory		medcare
+Build Command		npm run build
+Publish Directory	build
+Environment		Static Site

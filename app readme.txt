@@ -23,4 +23,6 @@ Later I will deploy it
 File upload is coming error
 
 Firebase, mongodb in harshaganji2004@gmail.com
+_______________
 
+I had used uri directly in app.js in server and the content in .env for user_name and password is redundant

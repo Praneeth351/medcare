@@ -24,16 +24,31 @@ mongoose
 
 app.use(express.static("public"));
 
-app.use(cors({
-  origin: "https://medcare-frontend-90qq.onrender.com", // <-- your deployed frontend URL
-  credentials: true
-}));
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://medcare-frontend-90qq.onrender.com",
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps or curl)
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
+
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "public/index.html");
+  res.sendFile(__dirname + "/public/index.html");
 });
 
 app.use("/api", api);
