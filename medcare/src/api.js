@@ -2,8 +2,11 @@ import axios from "axios";
 
 const axiosInstance = axios.create();
 
-const serverUrl = process.env.REACT_APP_SERVER || "http://localhost:5000";
-const baseUrl = `${serverUrl}/api`;
+const isProd = window.location.hostname !== "localhost";
+const baseUrl = isProd
+  ? "https://medcare-d11d.onrender.com/api"
+  : "http://localhost:5000/api";
+
 
 axiosInstance.interceptors.request.use(
   (config) => {
