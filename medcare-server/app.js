@@ -13,7 +13,6 @@ const app = express();
 const { USER_NAME, PASSWORD } = process.env;
 const uri = `mongodb+srv://${USER_NAME}:${PASSWORD}@cluster0.macfwpi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
-
 mongoose
   .connect(uri, {
     useNewUrlParser: true,
